@@ -6,24 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Izi to "new" and "save" ingredients
-i1 = Ingredient.create(name: 'Rhum')
-i2 = Ingredient.create(name: 'Mint')
-i3 = Ingredient.create(name: 'Lemon')
-i4 = Ingredient.create(name: 'Tonic')
-i5 = Ingredient.create(name: 'Ice')
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+result_serialized = open(url).read
+result = JSON.parse(result_serialized)
 
-# Izi to "new" and "save" cocktails
-c1 = Cocktail.create(name: 'Mojito')
-c2 = Cocktail.create(name: 'Virgin Mojito')
+result.first[1].each do |ingre|
+  Ingredient.create(name: ingre.values[0])
+end
 
-# to create dose, we need description + ingredient object + cocktail object
-Dose.create(description: '6CL', ingredient: i1, cocktail: c1)
-Dose.create(description: '12 Leaves', ingredient: i2, cocktail: c1)
-Dose.create(description: '1 Lemon', ingredient: i3, cocktail: c1)
-Dose.create(description: '15GR', ingredient: i5, cocktail: c1)
+# Izi to create cocktail ;
+# Cocktail.create(name: 'Mojito')
 
-Dose.create(description: '6CL', ingredient: i4, cocktail: c2)
-Dose.create(description: '12 Leaves', ingredient: i2, cocktail: c2)
-Dose.create(description: '1 Lemon', ingredient: i3, cocktail: c2)
-Dose.create(description: '15GR', ingredient: i5, cocktail: c2)
+# to create dose :
+# Dose.create(description: '6CL',
+#             ingredient: "object Ingredient",
+#             cocktail: "object cocktail")

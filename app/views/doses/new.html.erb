@@ -1,14 +1,12 @@
+<div class="container" style="margin: 8px;">
 <%= @cocktail.name  %> <br>
 <% @doses.each do |dose|  %>
   <%= "#{dose.description}: #{dose.ingredient.name}" %>
-  <br>
 <% end %>
-
-<div class="container" style="margin: 8px;">
   <%= simple_form_for @dose, url: cocktail_doses_path, method: :post do |f| %>
     <h2>Add stuff ! | <%= link_to "Back", cocktails_path%></h2>
+    <%= f.input :ingredient, collection: @ingredients %>
     <%= f.input :description, label: "How much of it?" %>
-    <%= f.input :ingredient, collection: @ingredients  %>
     <button type="button" class="btn btn-outline-primary" style="margin: 8px;">
       <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
     </button>
