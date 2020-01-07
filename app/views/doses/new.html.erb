@@ -7,8 +7,10 @@
     <h2>Add stuff ! | <%= link_to "Back", cocktails_path%></h2>
     <%= f.input :ingredient, collection: @ingredients %>
     <%= f.input :description, label: "How much of it?" %>
-    <button type="button" class="btn btn-outline-primary" style="margin: 8px;">
+    <button id="add-ingredient" class="btn btn-primary">
       <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
     </button>
   <% end %>
 </div>
+
+

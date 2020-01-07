@@ -17,3 +17,19 @@ import 'bootstrap';
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
+
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#add-ingredient', {
+  title: "Adding cocktail",
+  text: "Mixing and making magic with stuff",
+  icon: "success"
+});
+
+initSweetalert('#add-cocktail', {
+  title: "Adding cocktail",
+  text: "Let's do some magic!",
+  icon: "success"
+}, (value) => {
+  console.log(value);
+});

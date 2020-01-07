@@ -14,6 +14,8 @@ result.first[1].each do |ingre|
   Ingredient.create(name: ingre.values[0])
 end
 
+Ingredient.create(name: 'Ice')
+
 # Izi to create cocktail ;
 # Cocktail.create(name: 'Mojito')
 

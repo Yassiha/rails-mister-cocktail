@@ -1,8 +1,20 @@
-<h1>Index</h1>
-<% @cocktails.each do |cocktail| %>
-<%= link_to cocktail.name, cocktail_path(cocktail)  %>
-<%= button_to "Delete", cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...' } %> <br>
-
-<br>
-<% end %>
-<%= link_to "Add", new_cocktail_path %>
+<div class="container">
+  <div class="jumbotron">
+  <h1 class="display-4">Magic Cocktail Maker</h1>
+  <p class="lead">Mix stuff and make it happend!</p>
+  <hr class="my-4">
+  <p>If you cross Moderation tell him he own us a drink..</p>
+  <p class="lead">
+  <button class="btn btn-primary">
+    <%= link_to "Add", new_cocktail_path %>
+  </button>
+  </p>
+  <hr>
+   <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail.name, cocktail_path(cocktail)  %>
+    <button class="btn btn-secondary">
+      <%= link_to "delete", cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...' } %>
+    </button>
+  <% end %>
+</div>
+  </div>
