@@ -5,12 +5,15 @@ class DosesController < ApplicationController
     @dose = Dose.new
     ingredients = Ingredient.all
     @ingredients = ingredients
+    btn_msg
+    are_you_done
   end
 
   def create
     @dose = Dose.create(description: doses_params[:description],
-                        ingredient: Ingredient.find(doses_params[:ingredient]),
+                        ingredient: Ingredient.find(params[:ingredient]), # <<== is it safe ???
                         cocktail: Cocktail.find(params[:cocktail_id]))
+    sleep 1.5
     redirect_to new_cocktail_dose_path(params[:cocktail_id])
   end
 
@@ -25,5 +28,27 @@ class DosesController < ApplicationController
 
   def doses_params
     params.require(:dose).permit(:description, :ingredient, :cocktail)
+  end
+
+  def btn_msg
+    @btn_msg =
+      if @doses.empty? or @doses.count == 1
+        'Back'
+      else
+        'Validate Mixture'
+      end
+  end
+
+  def are_you_done
+    @are_you_done =
+      if @doses.empty?
+        'No magic yet..'
+      elsif @doses.count <= 2
+        'Poor Style!'
+      elsif @doses.count > 2 && @doses.count < 5
+        'Now we are talking!'
+      else
+        'Welcome Home Agent 47'
+      end
   end
 end

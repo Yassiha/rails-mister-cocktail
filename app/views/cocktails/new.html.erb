@@ -1,10 +1,17 @@
-<div class="container" style="margin: 8px;">
-  <%= simple_form_for @cocktail, url: cocktails_path, method: :post do |f| %>
-    <h2>Create Cocktail | <%= link_to "Back", cocktails_path%></h2>
-    <%= f.input :name, label: "Name it!" %>
-
-    <button type="button" class="btn btn-outline-primary" style="margin: 8px;">
-      <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
-    </button>
-  <% end %>
+<div class="container">
+  <div class="jumbotron">
+    <%= simple_form_for @cocktail, url: cocktails_path, method: :post do |f| %>
+      <h1 class="display-4">Create Mixture | <%= link_to "Back", cocktails_path%></h1>
+      <p class="lead">Mix stuff and make it happend!</p>
+      <hr class="my-4">
+      <p><%= f.input :name, label: "Name it!" %></p>
+      <p class="lead">
+      <button type="button" id="add-cocktail" class="btn btn-outline-primary" style="margin: 8px;">
+        <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
+      </button>
+    <% end %>
+      </p>
+      <hr>
+  </div>
 </div>
+

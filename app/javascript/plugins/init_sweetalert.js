@@ -9,7 +9,7 @@ const initSweetalert = (selector, options = {}) => {
   }
 };
 
-const initSweetalert = (selector, options = {}) => {
+const initSweetalert2 = (selector, options = {}) => {
   const swalButton = document.querySelector("#add-cocktail");
   if (swalButton) { // protect other pages
     swalButton.addEventListener('click', () => {
@@ -19,4 +19,4 @@ const initSweetalert = (selector, options = {}) => {
 };
 
 
-export { initSweetalert };
+export { initSweetalert, initSweetalert2 };

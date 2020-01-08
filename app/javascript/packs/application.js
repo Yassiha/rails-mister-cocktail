@@ -18,18 +18,23 @@ import 'bootstrap';
 
 console.log('Hello World from Webpacker')
 
-import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert, initSweetalert2 } from '../plugins/init_sweetalert';
 
 initSweetalert('#add-ingredient', {
-  title: "Adding cocktail",
-  text: "Mixing and making magic with stuff",
+  title: "Adding Ingredient",
+  text: "Mixing and making magic stuff",
   icon: "success"
 });
 
-initSweetalert('#add-cocktail', {
-  title: "Adding cocktail",
+initSweetalert2('#add-cocktail', {
+  title: "Yay",
   text: "Let's do some magic!",
   icon: "success"
 }, (value) => {
   console.log(value);
 });
+
+import 'select2/dist/css/select2.css';
+import { initSelect2 } from '../components/init_select2';
+
+initSelect2();
