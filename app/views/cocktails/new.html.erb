@@ -1,14 +1,12 @@
 <div class="container">
-  <div class="jumbotron">
+  <div class="main-box">
     <%= simple_form_for @cocktail, url: cocktails_path, method: :post do |f| %>
       <h1 class="display-4">Create Mixture | <%= link_to "Back", cocktails_path%></h1>
       <p class="lead">Mix stuff and make it happend!</p>
       <hr class="my-4">
       <p><%= f.input :name, label: "Name it!" %></p>
       <p class="lead">
-      <button type="button" id="add-cocktail" class="btn btn-outline-primary" style="margin: 8px;">
-        <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
-      </button>
+        <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating..", class: "btn-add", id: "add-cocktail" %>
     <% end %>
       </p>
       <hr>

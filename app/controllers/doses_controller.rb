@@ -21,7 +21,7 @@ class DosesController < ApplicationController
     @dose = Dose.find(params[:cocktail_id])
     @dose.destroy
 
-    redirect_to cocktail_path(@dose.cocktail)
+    redirect_to new_cocktail_dose_path(@dose.cocktail)
   end
 
   private
@@ -32,7 +32,7 @@ class DosesController < ApplicationController
 
   def btn_msg
     @btn_msg =
-      if @doses.empty? or @doses.count == 1
+      if @doses.empty? || @doses.count == 1
         'Back'
       else
         'Validate Mixture'

@@ -1,34 +1,31 @@
-<div class="container" style="margin: 8px;">
-  <div class="jumbotron">
-  <h1 class="display-4"><%= @cocktail.name  %></h1>
-  <p class="lead">
+<div class="container">
+  <div class="main-box">
+    <h1 class="display-4"><%= @cocktail.name  %></h1>
+    <p class="lead">
     <% @doses.each do |dose|  %>
-      <%= "#{dose.ingredient.name}: #{dose.description}" %> <br>
-    <% end %>
-  </p>
-  <hr class="my-4">
-  <p> <%= @are_you_done  %></p>
-  <p class="lead">
-  <button class="btn btn-primary">
-    <%= link_to @btn_msg, cocktails_path %>
-  </button>
-  </p>
-  <hr>
-    <%= simple_form_for @dose, url: cocktail_doses_path, method: :post do |f| %>
-    <h2>Laboratoy</h2>
+      <%= "#{dose.ingredient.name}: #{dose.description}" %>
+      <%= link_to "(-)", cocktail_dose_path(dose, dose.cocktail), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...' } %> <br>
 
-    <%= select_tag "ingredient", options_from_collection_for_select(
+      <br>
+    <% end %>
+    </p>
+    <hr class="my-4">
+    <p> <%= @are_you_done  %></p>
+    <p class="lead">
+      <%= link_to @btn_msg, cocktails_path, class: "btn-add" %>
+    </p>
+    <hr>
+    <%= simple_form_for @dose, url: cocktail_doses_path, method: :post do |f| %>
+      <h2>Laboratory</h2>
+        <%= select_tag "ingredient", options_from_collection_for_select(
         @ingredients.sort_by { |ingre| ingre.name }, :id, :name),
         class: 'select2' %>
 
-    <%= f.input :description, label: "How much of it?" %>
+        <%= f.input :description, label: "How much of it?" %>
 
-    <button id="add-ingredient" class="btn btn-primary">
-      <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating.." %>
-    </button>
-
-  <% end %>
-</div>
+          <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating..", class: "btn-add", id: "add-ingredient" %>
+    <% end %>
+  </div>
 </div>
 
 
