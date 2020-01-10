@@ -23,7 +23,7 @@ class CocktailsController < ApplicationController
       redirect_to new_cocktail_path
     else
       @cocktail = Cocktail.create(cocktail_params)
-      sleep 1.5
+      sleep 1
       redirect_to new_cocktail_dose_path(@cocktail)
     end
   end
@@ -31,7 +31,7 @@ class CocktailsController < ApplicationController
   def destroy
     @cocktail = Cocktail.find(params[:id])
     @cocktail.destroy
-    sleep 1
+    sleep 0.5
 
     redirect_to cocktails_path
   end

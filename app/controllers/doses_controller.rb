@@ -14,13 +14,14 @@ class DosesController < ApplicationController
     @dose = Dose.create(description: doses_params[:description],
                         ingredient: Ingredient.find(params[:ingredient]), # <<== is it safe ???
                         cocktail: Cocktail.find(params[:cocktail_id]))
-    sleep 1.5
+    sleep 1
     redirect_to new_cocktail_dose_path(params[:cocktail_id])
   end
 
   def destroy
     @dose = Dose.find(params[:cocktail_id])
     @dose.destroy
+    sleep 0.5
 
     redirect_to new_cocktail_dose_path(@dose.cocktail)
   end
