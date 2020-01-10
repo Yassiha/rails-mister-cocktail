@@ -1,18 +1,5 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 .my-navbar {
-  background: #EE6C4D;
+  background: #535568;
   padding: 8px;
   display: flex;
   justify-content: space-between;
@@ -21,4 +8,10 @@
     box-shadow: 4px 2px 2px #FF3864;
     background: #E8335B;
   }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

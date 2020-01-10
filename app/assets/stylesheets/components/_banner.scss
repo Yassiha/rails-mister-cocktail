@@ -1,0 +1,44 @@
+.banner {
+  padding: 150px 0;
+  height: 66vh;
+
+  .banner-img {
+    background: url("https://images.unsplash.com/photo-1547059470-3b0c7cd958a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80");
+    filter: blur(2px);
+    -webkit-filter: blur(1px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 150%;
+  }
+
+  h1 {
+  margin: 0;
+  padding-left: 48px;
+  color: #EC4E20;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  opacity:1;
+  position: relative;
+  bottom: 224px;
+  }
+
+  p {
+  padding-left: 48px;
+  font-size: 20px;
+  color: #EC4E20;
+  opacity: 1;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  position: relative;
+  bottom: 224px;
+  }
+
+  #try-it {
+    width: 40px;
+    position: relative;
+    bottom: 224px;
+    left: 48px;
+  }
+}
+
+

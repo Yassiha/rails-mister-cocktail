@@ -1,8 +1,35 @@
 .main-box {
-  background: #EE6C4D;
-  margin: 50px;
-  box-shadow: 10px 5px 5px #C6C6C6;
+  background: #535568;
+  box-shadow: 5px 2px 2px #535568;
   border-radius: 8px;
   padding: 80px;
   color: white;
+  margin-bottom: 64px;
+  margin-top: 80px;
+
+
+  h2 {
+    color: #EC4E20;
+  }
+
+  #thumb {
+  text-align: right;
+  }
+
+  #cocktail-name {
+    color: #D23333;
+  }
+
 }
+
+  #new-cocktail {
+    margin-top: 80px;
+    margin-bottom: 300px;
+  }
+
+  #add-ingredient {
+    margin-top: 80px;
+    margin-bottom: 64px;
+  }
+
+

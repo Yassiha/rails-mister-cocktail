@@ -1,11 +1,11 @@
 <div class="container">
   <div class="main-box">
-    <h1 class="display-4"><%= @cocktail.name  %></h1>
+    <h1 class="display-4" id="cocktail-name"><%= @cocktail.name  %></h1>
     <p class="lead">
+    <h3><%= @title_ingredients  %></h3>
     <% @doses.each do |dose|  %>
       <%= "#{dose.ingredient.name}: #{dose.description}" %>
       <%= link_to "(-)", cocktail_dose_path(dose, dose.cocktail), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...' } %> <br>
-
       <br>
     <% end %>
     </p>
@@ -16,14 +16,15 @@
     </p>
     <hr>
     <%= simple_form_for @dose, url: cocktail_doses_path, method: :post do |f| %>
-      <h2>Laboratory</h2>
-        <%= select_tag "ingredient", options_from_collection_for_select(
+      <h2>Mixology corner</h2>
+      <p>Ingredient:
+         <%= select_tag "ingredient", options_from_collection_for_select(
         @ingredients.sort_by { |ingre| ingre.name }, :id, :name),
-        class: 'select2' %>
+        class: 'select2' %> </p>
 
-        <%= f.input :description, label: "How much of it?" %>
+        <%= f.input :description, label: "Dosage:" %>
 
-          <%= f.button :submit, value: 'Add', "data-disable-with" => "Creating..", class: "btn-add", id: "add-ingredient" %>
+          <%= f.button :submit, value: 'Mix', "data-disable-with" => "Creating..", class: "btn-add", id: "add-ingredient" %>
     <% end %>
   </div>
 </div>

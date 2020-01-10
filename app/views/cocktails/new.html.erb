@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="main-box">
-    <%= simple_form_for @cocktail, url: cocktails_path, method: :post do |f| %>
-      <h1 class="display-4">Create Mixture | <%= link_to "Back", cocktails_path%></h1>
+  <div class="main-box" id="new-cocktail">
+    <%= simple_form_for @cocktail, url: cocktails_path, class: "form-add", method: :post do |f| %>
+      <h1 class="display-4">Create Mixture
       <p class="lead">Mix stuff and make it happend!</p>
       <hr class="my-4">
       <p><%= f.input :name, label: "Name it!" %></p>

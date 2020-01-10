@@ -1,17 +1,27 @@
 <div class="container">
-  <div class="main-box">
-    <h1 class="display-4">Cocktail Maker</h1>
-    <p class="lead"></p>
-    <hr class="my-4">
-    <p>Mix stuff and make it happend! </p>
+  <div class="banner">
+    <div class="banner-img"></div>
+      <h1>Xoxo is <strong>the best Cocktail BAR</strong> because <strong>it's YOUR cocktail bar!</strong>!</h1>
+      <p>Mix it, post it, vote for it. The top 3 become a part of the fam'! </p>
+      <%= link_to "Create yours!", new_cocktail_path, class: "btn-add", id: "try-it" %>
   </div>
-  <div class="mixtures">
-  <h2>Mixtures DataBase</h2>
+
+  <div class="main-box">
+  <h2>Last Suggestions</h2>
+    <% if @cocktails.count == 0 %>
+    <%= "Empty"  %>
+    <% end %>
    <% @cocktails.each do |cocktail| %>
-   <div class="main-box">
-    <%= link_to cocktail.name, new_cocktail_dose_path(cocktail)  %>
-    <%= link_to "(-)", cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...' } %>
-   </div>
+    <%= link_to new_cocktail_dose_path(cocktail), :action => 'go' do %>
+      <div class="sub-box">
+        <%= cocktail.name + " :" %> <br>
+        <% cocktail.ingredients.each do |ingredient| %>
+          <%= "*#{ingredient.name}: #{ingredient.doses[0].description} "  %> <br>
+        <% end %>
+        <%= link_to "(Remove)", cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'deleting...' } %>
+        | Vote: <i class="far fa-thumbs-up" class="thumb"></i> or <i class="far fa-thumbs-down"></i></i>
+      </div>
+    <% end %>
   <% end %>
 </div>
   </div>

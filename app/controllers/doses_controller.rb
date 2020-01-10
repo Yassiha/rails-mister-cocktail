@@ -7,6 +7,7 @@ class DosesController < ApplicationController
     @ingredients = ingredients
     btn_msg
     are_you_done
+    title_ingredients
   end
 
   def create
@@ -42,13 +43,22 @@ class DosesController < ApplicationController
   def are_you_done
     @are_you_done =
       if @doses.empty?
-        'No magic yet..'
+        "Let's get started!"
       elsif @doses.count <= 2
-        'Poor Style!'
+        'Booooring!'
       elsif @doses.count > 2 && @doses.count < 5
         'Now we are talking!'
       else
-        'Welcome Home Agent 47'
+        "Can't wait to try it!"
+      end
+  end
+
+  def title_ingredients
+    @title_ingredients =
+      if @doses.empty?
+        ''
+      else
+        'Ingredients: '
       end
   end
 end

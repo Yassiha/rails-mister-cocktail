@@ -12,10 +12,20 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.create(cocktail_params)
-    sleep 1.5
+    @cocktails = Cocktail.all
+    check_name = true
+    @cocktails.each do |cocktail|
+      check_name = false if cocktail.name == cocktail_params[:name]
+    end
 
-    redirect_to new_cocktail_dose_path(@cocktail)
+    check_name = false if cocktail_params[:name].strip == ''
+    if check_name == false
+      redirect_to new_cocktail_path
+    else
+      @cocktail = Cocktail.create(cocktail_params)
+      sleep 1.5
+      redirect_to new_cocktail_dose_path(@cocktail)
+    end
   end
 
   def destroy
